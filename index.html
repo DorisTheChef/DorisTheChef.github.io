@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doris The Chef</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f6f8fa;
+            color: #23272f;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0 0 0.5em 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 1.2em;
+        }
+        nav a {
+            color: #23272f;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05em;
+            transition: color 0.2s;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            color: #2563eb;
+            border-bottom: 2px solid #2563eb;
+        }
+        main {
+            max-width: 480px;
+            margin: 3em auto 2em auto;
+            padding: 2.5em 1.5em;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+        }
+        #about {
+            text-align: center;
+        }
+        #about img {
+            display: block;
+            margin: 0 auto 1.2em auto;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 2px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        h2 {
+            color: #2563eb;
+            margin-bottom: 0.7em;
+            font-size: 1.25em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        #projects ul li, #contact ul li {
+            margin-bottom: 0.7em;
+        }
+        #projects ul li a, #contact ul li a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #2563eb;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        #projects ul li a:hover, #contact ul li a:hover {
+            color: #23272f;
+            border-bottom: 1px solid #23272f;
+        }
+        p {
+            line-height: 1.7;
+        }
+        footer, main > p:last-child {
+            text-align: center;
+            color: #b0b3b8;
+            margin-top: 2em;
+            font-size: 0.98em;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 600px) {
+            main {
+                padding: 1em;
+            }
+            nav ul li {
+                display: block;
+                margin: 0.7em 0;
+            }
+            #about img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Baixue (Doris) Zhang</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <img src="avatar.JPG" alt="Photo of Doris">
+            <h2>About Doris</h2>
+            <p>Hello! I'm Doris, a graduate student at San Jose State University who loves exploring data, programming, and statistics. I also love cooking, and to me, coding feels a lot like crafting a great dish: thoughtful, creative, and deeply satisfying. Join me as I share my projects, interests, and journey in data science!</p>
+        </section>
+        <section id="projects">
+            <h2>Projects <span class="emoji">🛠️</span></h2>
+            <ul>
+                <li>
+                   <a href="https://github.com/doristhechef/Time-Series-Model-Identification" target="_blank">
+                        ⏰ Time Series Model Identification
+                    </a>
+               </li>
+               <li>
+                    <a href="https://github.com/doristhechef/Dimension-Reduction-on-LiChess-Dataset" target="_blank">
+                       ♟️ Dimension Reduction on LiChess Dataset
+                    </a>
+               </li>
+               <li>
+                   <a href="https://github.com/doristhechef/Refining-Regression-Model-for-Automobile-Dataset" target="_blank">
+                       🚗 Refining Regression Model for Automobile Dataset
+                   </a>
+               </li>
+               <li>
+                  <a href="https://github.com/doristhechef/Visualization-with-R-on-Friends-TV-Series-Dataset" target="_blank">
+                      📺 Visualization with R on Friends-TV-Series Dataset
+                  </a>
+              </li>
+          </ul>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/baixue-doris-zhang-2302b4306/" target="_blank">LinkedIn</a>
+                </li>
+                <li>
+                    <a href="https://baixuezhang.carrd.co" target="_blank">Portfolio</a>
+                </li>
+                <li>
+                    <a href="https://drive.google.com/file/d/1spu3e--86fKut-FOLmngKFGLnaSEsdC8/view?usp=sharing" target="_blank">CV</a>
+                </li>
+                <li>
+                    <a href="mailto:baixue.zhang@sjsu.edu">Email</a>
+                </li>
+            </ul>
+        </section>
+        <footer>
+            <p>&copy; 2025 Baixue (Doris) Zhang. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>
