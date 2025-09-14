@@ -1,186 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doris The Chef</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', Arial, sans-serif;
-            background: #f6f8fa;
-            color: #23272f;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #fff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 2rem 0 1rem 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0 0 0.5em 0;
-            font-size: 2.2em;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav ul li {
-            display: inline-block;
-            margin: 0 1.2em;
-        }
-        nav a {
-            color: #23272f;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.05em;
-            transition: color 0.2s;
-            padding-bottom: 2px;
-            border-bottom: 2px solid transparent;
-        }
-        nav a:hover {
-            color: #2563eb;
-            border-bottom: 2px solid #2563eb;
-        }
-        main {
-            max-width: 480px;
-            margin: 3em auto 2em auto;
-            padding: 2.5em 1.5em;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
-        }
-        #about {
-            text-align: center;
-        }
-        #about img {
-            display: block;
-            margin: 0 auto 1.2em auto;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border: 2px solid #e5e7eb;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-        h2 {
-            color: #2563eb;
-            margin-bottom: 0.7em;
-            font-size: 1.25em;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        ul {
-            padding-left: 0;
-            list-style: none;
-        }
-        #projects ul li, #contact ul li {
-            margin-bottom: 0.7em;
-        }
-        #projects ul li a, #contact ul li a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px dotted #2563eb;
-            transition: border-color 0.2s, color 0.2s;
-        }
-        #projects ul li a:hover, #contact ul li a:hover {
-            color: #23272f;
-            border-bottom: 1px solid #23272f;
-        }
-        p {
-            line-height: 1.7;
-        }
-        footer, main > p:last-child {
-            text-align: center;
-            color: #b0b3b8;
-            margin-top: 2em;
-            font-size: 0.98em;
-            letter-spacing: 0.5px;
-        }
-        @media (max-width: 600px) {
-            main {
-                padding: 1em;
-            }
-            nav ul li {
-                display: block;
-                margin: 0.7em 0;
-            }
-            #about img {
-                width: 90px;
-                height: 90px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baixue (Doris) Zhang</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111418;
+      --muted:#687076;
+      --accent:#2563eb;
+      --ring:#2f6feb;
+      --line:#e6e8eb;
+      --pill:#f6f8fa;
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* Layout */
+    .container{width:min(960px,92vw);margin:0 auto;padding:48px 0}
+    .hero{display:flex;align-items:center;justify-content:center;min-height:76vh;text-align:center}
+    .stack{display:flex;flex-direction:column;align-items:center;gap:28px}
+
+    /* Top nav pills */
+    .pill-nav{
+      display:flex;gap:12px;flex-wrap:wrap;justify-content:center
+    }
+    .pill{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:42px;padding:0 18px;border-radius:999px;
+      background:var(--pill);border:1px solid var(--line);
+      font-weight:600;letter-spacing:.22em;font-size:.76rem;
+      color:#222; text-transform:uppercase;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease
+    }
+    .pill:hover{transform:translateY(-1px);background:#eef2f7;border-color:#d0d7de}
+
+    /* Avatar */
+    .avatar{
+      width:160px;height:160px;border-radius:50%;object-fit:cover;
+      filter:drop-shadow(0 8px 24px rgba(0,0,0,.08));
+      border:6px solid #fff;
+    }
+
+    /* Name + subtitle */
+    .name{font-size:clamp(28px,4.5vw,40px);font-weight:600;letter-spacing:.04em}
+    .subtitle{
+      color:var(--muted);
+      letter-spacing:.38em; /* spaced letters like your screenshot */
+      font-size:.78rem;
+      line-height:1; text-transform:uppercase
+    }
+
+    /* Socials */
+    .socials{display:flex;gap:16px;margin-top:6px}
+    .icon-btn{
+      width:44px;height:44px;border-radius:999px;
+      border:2px solid var(--ring); display:inline-grid;place-items:center;
+      background:#fff; transition:transform .15s ease, box-shadow .15s ease
+    }
+    .icon-btn:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(47,111,235,.18)}
+    .icon{width:20px;height:20px;display:block}
+
+    /* Divider + footer */
+    .divider{height:1px;background:var(--line);margin:64px auto 18px; width:min(760px,92vw)}
+    .made{color:#9aa1a7;font-size:.82rem;text-align:center}
+
+    /* Content sections (optional; linked from pills) */
+    section{scroll-margin-top:84px}
+    .section{padding:56px 0}
+    .section h2{font-size:1.1rem;letter-spacing:.22em;text-transform:uppercase;margin:0 0 20px 0}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{
+      border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff;
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:0 8px 26px rgba(0,0,0,.06);border-color:#d0d7de}
+    .card a{color:var(--accent);font-weight:600;border-bottom:1px dotted var(--accent)}
+    .card a:hover{border-bottom-style:solid}
+
+    /* Responsive tweaks */
+    @media (max-width:520px){
+      .avatar{width:130px;height:130px}
+      .subtitle{letter-spacing:.28em}
+      .socials{gap:12px}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Baixue (Doris) Zhang</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="about">
-            <img src="avatar.JPG" alt="Photo of Doris">
-            <h2>About Doris</h2>
-            <p>Hello! I'm Doris, a graduate student at San Jose State University who loves exploring data, programming, and statistics. I also love cooking, and to me, coding feels a lot like crafting a great dish: thoughtful, creative, and deeply satisfying. Join me as I share my projects, interests, and journey in data science!</p>
-        </section>
-        <section id="projects">
-            <h2>Projects <span class="emoji">🛠️</span></h2>
-            <ul>
-                <li>
-                   <a href="https://github.com/doristhechef/Time-Series-Model-Identification" target="_blank">
-                        ⏰ Time Series Model Identification
-                    </a>
-               </li>
-               <li>
-                    <a href="https://github.com/doristhechef/Dimension-Reduction-on-LiChess-Dataset" target="_blank">
-                       ♟️ Dimension Reduction on LiChess Dataset
-                    </a>
-               </li>
-               <li>
-                   <a href="https://github.com/doristhechef/Refining-Regression-Model-for-Automobile-Dataset" target="_blank">
-                       🚗 Refining Regression Model for Automobile Dataset
-                   </a>
-               </li>
-               <li>
-                  <a href="https://github.com/doristhechef/Visualization-with-R-on-Friends-TV-Series-Dataset" target="_blank">
-                      📺 Visualization with R on Friends-TV-Series Dataset
-                  </a>
-              </li>
-          </ul>
-        </section>
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <ul>
-                <li>
-                    <a href="https://www.linkedin.com/in/baixue-doris-zhang-2302b4306/" target="_blank">LinkedIn</a>
-                </li>
-                <li>
-                    <a href="https://baixuezhang.carrd.co" target="_blank">Portfolio</a>
-                </li>
-                <li>
-                    <a href="https://drive.google.com/file/d/1spu3e--86fKut-FOLmngKFGLnaSEsdC8/view?usp=sharing" target="_blank">CV</a>
-                </li>
-                <li>
-                    <a href="mailto:baixue.zhang@sjsu.edu">Email</a>
-                </li>
-            </ul>
-        </section>
-        <footer>
-            <p>&copy; 2025 Baixue (Doris) Zhang. All rights reserved.</p>
-        </footer>
-    </main>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container stack" aria-label="Intro section">
+      <nav class="pill-nav" aria-label="Primary">
+        <a class="pill" href="#home">Home</a>
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+
+      <img class="avatar" src="avatar.JPG" alt="Portrait of Baixue (Doris) Zhang">
+
+      <div id="home">
+        <h1 class="name">Baixue (Doris) Zhang</h1>
+        <p class="subtitle">Statistics Grad Student | TA | Aspiring Data Analyst</p>
+
+        <div class="socials" aria-label="Social links">
+          <!-- LinkedIn -->
+          <a class="icon-btn" href="https://www.linkedin.com/in/baixue-doris-zhang-2302b4306/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6.94 8.5H3.75V20.25H6.94V8.5Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M5.34 3.75C4.2 3.75 3.27 4.68 3.27 5.82C3.27 6.96 4.2 7.89 5.34 7.89C6.48 7.89 7.41 6.96 7.41 5.82C7.41 4.68 6.48 3.75 5.34 3.75Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13.12 20.25V13.88C13.12 12.3 14.41 11.02 15.99 11.02C17.57 11.02 18.86 12.3 18.86 13.88V20.25H22.05V13.39C22.05 10.27 19.52 7.75 16.4 7.75C14.83 7.75 13.41 8.39 12.41 9.45V8.5H9.23V20.25H12.41V13.88" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </a>
+
+          <!-- GitHub -->
+          <a class="icon-btn" href="https://github.com/doristhechef" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2.25C6.62 2.25 2.25 6.62 2.25 12C2.25 16.44 5.19 20.14 9.2 21.42C9.68 21.51 9.86 21.22 9.86 20.97C9.86 20.75 9.85 20.12 9.85 19.34C7 19.94 6.39 18.11 6.39 18.11C5.96 17.02 5.31 16.73 5.31 16.73C4.38 16.09 5.38 16.1 5.38 16.1C6.41 16.17 6.95 17.15 6.95 17.15C7.86 18.72 9.36 18.26 9.95 18.01C10.04 17.37 10.31 16.94 10.61 16.69C8.28 16.44 5.85 15.46 5.85 11.47C5.85 10.34 6.25 9.4 6.93 8.67C6.83 8.42 6.47 7.32 7.03 5.86C7.03 5.86 7.92 5.58 9.84 6.88C10.68 6.65 11.58 6.54 12.48 6.54C13.38 6.54 14.28 6.65 15.12 6.88C17.04 5.58 17.93 5.86 17.93 5.86C18.49 7.32 18.13 8.42 18.03 8.67C18.72 9.4 19.11 10.34 19.11 11.47C19.11 15.48 16.67 16.43 14.33 16.68C14.71 16.99 15.05 17.64 15.05 18.66C15.05 20.07 15.03 21.18 15.03 21.5C15.03 21.75 15.2 22.05 15.69 21.96C19.71 20.13 22.65 16.43 22.65 12C22.65 6.62 18.28 2.25 12 2.25Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a class="icon-btn" href="mailto:baixue.zhang@sjsu.edu" aria-label="Email">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3.75 6.75H20.25V17.25H3.75V6.75Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M3.75 7L12 12.5L20.25 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- CV -->
+          <a class="icon-btn" href="https://drive.google.com/file/d/1spu3e--86fKut-FOLmngKFGLnaSEsdC8/view?usp=sharing" target="_blank" rel="noopener" aria-label="Curriculum Vitae">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7.5 3.75H14.25L19.5 9V20.25H7.5V3.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M14.25 3.75V9H19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <p class="made">( Made with GitHub Pages )</p>
+    </div>
+  </header>
+
+  <!-- CONTENT (optional sections to scroll to) -->
+  <main class="container">
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <a href="https://github.com/doristhechef/Time-Series-Model-Identification" target="_blank" rel="noopener">⏰ Time Series Model Identification</a>
+        </article>
+        <article class="card">
+          <a href="https://github.com/doristhechef/Dimension-Reduction-on-LiChess-Dataset" target="_blank" rel="noopener">♟️ Dimension Reduction on LiChess Dataset</a>
+        </article>
+        <article class="card">
+          <a href="https://github.com/doristhechef/Refining-Regression-Model-for-Automobile-Dataset" target="_blank" rel="noopener">🚗 Refining Regression Model for Automobile Dataset</a>
+        </article>
+        <article class="card">
+          <a href="https://github.com/doristhechef/Visualization-with-R-on-Friends-TV-Series-Dataset" target="_blank" rel="noopener">📺 Visualization with R on Friends Dataset</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p>Feel free to reach out via <a href="mailto:baixue.zhang@sjsu.edu">email</a> or connect on <a href="https://www.linkedin.com/in/baixue-doris-zhang-2302b4306/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    </section>
+  </main>
+
+  <!-- Smooth anchor scroll (no frameworks) -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href').slice(1);
+        const el=document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
 </body>
 </html>
