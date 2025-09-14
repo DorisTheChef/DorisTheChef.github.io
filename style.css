@@ -47,13 +47,14 @@ nav a:hover {
 }
 
 main {
-    max-width: 800px;
-    margin: 2.5em auto;
-    padding: 2.5em 2em;
+    max-width: 800px;   /* or remove this line completely */
+    margin: 3em auto;
+    padding: 3em 2em;
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.06);
 }
+
 
 section {
     margin-bottom: 2.5em;
