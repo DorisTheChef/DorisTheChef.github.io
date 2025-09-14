@@ -140,6 +140,92 @@
       transform:translateY(-2px);
     }
 
+    /* Students Feedback Section */
+    .feedback-content{display:flex;flex-direction:column;gap:60px}
+    
+    /* Communication Highlights */
+    .highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px}
+    .highlight-card{
+      background:#fff;border:1px solid var(--line);border-radius:20px;
+      padding:32px;text-align:center;transition:all 0.3s ease;
+      box-shadow:0 4px 20px rgba(0,0,0,.05);
+    }
+    .highlight-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 20px 60px rgba(0,0,0,.1);
+      border-color:var(--accent);
+    }
+    .highlight-icon{font-size:3rem;margin-bottom:20px}
+    .highlight-title{
+      font-size:1.1rem;font-weight:600;margin:0 0 16px 0;
+      color:var(--text);
+    }
+    .highlight-desc{
+      color:var(--muted);line-height:1.6;margin:0;
+      font-size:0.95rem;
+    }
+    
+    /* Student Testimonials */
+    .testimonials-container{position:relative;max-width:100%;overflow:hidden}
+    .testimonials-scroll{
+      display:flex;gap:32px;transition:transform 0.5s ease;
+      scroll-behavior:smooth;
+    }
+    .testimonial-card{
+      background:linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border:1px solid var(--line);border-radius:20px;
+      padding:32px;position:relative;transition:all 0.3s ease;
+      box-shadow:0 4px 20px rgba(0,0,0,.05);
+      flex:0 0 100%;min-width:0;
+    }
+    .testimonial-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 40px rgba(0,0,0,.1);
+    }
+    .quote-mark{
+      position:absolute;top:16px;left:24px;
+      font-size:4rem;color:var(--accent);opacity:0.2;
+      font-family:Georgia,serif;line-height:1;
+    }
+    .testimonial-text{
+      margin:20px 0 16px 0;font-style:italic;
+      color:var(--text);line-height:1.6;font-size:1.05rem;
+    }
+    .testimonial-author{
+      color:var(--muted);font-size:0.9rem;font-weight:500;
+      display:block;text-align:center;margin:0 60px;
+    }
+    
+    /* Scroll Controls */
+    .scroll-btn{
+      position:absolute;top:50%;transform:translateY(-50%);
+      background:rgba(255,255,255,0.9);border:1px solid var(--line);
+      border-radius:50%;width:50px;height:50px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.5rem;color:var(--accent);cursor:pointer;
+      transition:all 0.3s ease;z-index:10;
+      backdrop-filter:blur(10px);
+    }
+    .scroll-btn:hover{
+      background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.1);
+      transform:translateY(-50%) scale(1.1);
+    }
+    .scroll-btn-left{left:-25px}
+    .scroll-btn-right{right:-25px}
+    
+    /* Scroll Indicators */
+    .scroll-indicators{
+      display:flex;justify-content:center;gap:8px;margin-top:24px;
+    }
+    .indicator{
+      width:12px;height:12px;border-radius:50%;
+      background:var(--line);cursor:pointer;
+      transition:all 0.3s ease;
+    }
+    .indicator.active, .indicator:hover{
+      background:var(--accent);transform:scale(1.2);
+    }
+
     /* Enhanced Project Cards */
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:32px}
     .project-card{
@@ -221,8 +307,13 @@
       .about-content{grid-template-columns:1fr;gap:40px}
       .contact-content{grid-template-columns:1fr;gap:40px}
       .projects-grid{grid-template-columns:1fr}
+      .highlights-grid{grid-template-columns:1fr;gap:24px}
+      .scroll-btn{width:40px;height:40px;font-size:1.2rem}
+      .scroll-btn-left{left:-20px}
+      .scroll-btn-right{right:-20px}
+      .testimonial-author{margin:0 50px}
       .nav-fixed{left:16px;right:16px;transform:none}
-      .pill-nav{justify-content:center}
+      .pill-nav{justify-content:center;flex-wrap:wrap}
     }
     @media (max-width:520px){
       .subtitle{letter-spacing:.2em}
@@ -238,6 +329,7 @@
     <div class="pill-nav" aria-label="Primary">
       <a class="pill" href="#home">Home</a>
       <a class="pill" href="#about">About</a>
+      <a class="pill" href="#feedback">Teaching</a>
       <a class="pill" href="#projects">Projects</a>
       <a class="pill" href="#experience">Experience</a>
       <a class="pill" href="#contact">Contact</a>
@@ -313,19 +405,154 @@
           
           <div class="skills-section">
             <h3 style="margin-bottom: 24px; font-size: 1.2rem; font-weight: 600;">Technical Skills</h3>
-            <div class="skills-grid">
-              <div class="skill">R</div>
-              <div class="skill">Python</div>
-              <div class="skill">SQL</div>
-              <div class="skill">Statistics</div>
-              <div class="skill">Machine Learning</div>
-              <div class="skill">Time Series</div>
-              <div class="skill">Data Visualization</div>
-              <div class="skill">Regression Analysis</div>
-              <div class="skill">Hypothesis Testing</div>
-              <div class="skill">Dimension Reduction</div>
-              <div class="skill">Statistical Modeling</div>
-              <div class="skill">Data Mining</div>
+            
+            <div class="skills-category" style="margin-bottom: 32px;">
+              <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">Programming Languages</h4>
+              <div class="skills-grid">
+                <div class="skill">Python (Advanced)</div>
+                <div class="skill">JavaScript (ES6+)</div>
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3</div>
+                <div class="skill">SQL</div>
+              </div>
+            </div>
+
+            <div class="skills-category" style="margin-bottom: 32px;">
+              <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">AI & Machine Learning</h4>
+              <div class="skills-grid">
+                <div class="skill">Large Language Models</div>
+                <div class="skill">Google Gemini API</div>
+                <div class="skill">Prompt Engineering</div>
+                <div class="skill">Function Calling</div>
+                <div class="skill">Generative AI</div>
+              </div>
+            </div>
+
+            <div class="skills-category" style="margin-bottom: 32px;">
+              <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">Web Development</h4>
+              <div class="skills-grid">
+                <div class="skill">Flask</div>
+                <div class="skill">RESTful API Design</div>
+                <div class="skill">AJAX/Fetch API</div>
+                <div class="skill">CORS</div>
+                <div class="skill">Responsive Design</div>
+                <div class="skill">Full-Stack Development</div>
+              </div>
+            </div>
+
+            <div class="skills-category" style="margin-bottom: 32px;">
+              <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">Data Science</h4>
+              <div class="skills-grid">
+                <div class="skill">NumPy</div>
+                <div class="skill">Pandas</div>
+                <div class="skill">Statistical Modeling</div>
+                <div class="skill">Data Validation</div>
+                <div class="skill">JSON/CSV Processing</div>
+                <div class="skill">Distribution Analysis</div>
+                <div class="skill">Virtual Environments</div>
+                <div class="skill">PyPDF2</div>
+              </div>
+            </div>
+
+            <div class="skills-category" style="margin-bottom: 32px;">
+              <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">Tools & Frameworks</h4>
+              <div class="skills-grid">
+                <div class="skill">Git</div>
+                <div class="skill">Virtual Environments</div>
+                <div class="skill">Multi-threading</div>
+                <div class="skill">Automated Deployment</div>
+                <div class="skill">Error Handling</div>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">Domain Knowledge</h4>
+              <div class="skills-grid">
+                <div class="skill">Clinical Data Management</div>
+                <div class="skill">Healthcare Informatics</div>
+                <div class="skill">Medical Data Standards</div>
+                <div class="skill">Regulatory Compliance</div>
+                <div class="skill">Healthcare Technology</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENTS FEEDBACK SECTION -->
+    <section id="feedback" class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="section-title">Students Feedback</h2>
+          <p class="section-subtitle">I'm also passionate about communication and teaching. Students describe me as clear, approachable, and supportive, noting that I "know the math and nudge them in the right direction without just giving the answers."</p>
+        </div>
+        
+        <div class="feedback-content fade-in">
+          <!-- Communication Highlights -->
+          <div class="highlights-section">
+            <h3 style="margin-bottom: 32px; font-size: 1.3rem; font-weight: 600; text-align: center;">Communication Highlights</h3>
+            <div class="highlights-grid">
+              <div class="highlight-card">
+                <div class="highlight-icon">🗣</div>
+                <h4 class="highlight-title">Clear Communication</h4>
+                <p class="highlight-desc">Breaking down complex problems into understandable steps, explaining mathematical concepts and methods clearly</p>
+              </div>
+              
+              <div class="highlight-card">
+                <div class="highlight-icon">🤝</div>
+                <h4 class="highlight-title">Interactive Teaching</h4>
+                <p class="highlight-desc">Encouraging student participation and creating a safe, comfortable learning environment</p>
+              </div>
+              
+              <div class="highlight-card">
+                <div class="highlight-icon">📚</div>
+                <h4 class="highlight-title">Strong Foundation & Guidance</h4>
+                <p class="highlight-desc">Solid professional expertise with ability to guide students toward independent thinking</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Student Testimonials -->
+          <div class="testimonials-section">
+            <h3 style="margin-bottom: 32px; font-size: 1.3rem; font-weight: 600; text-align: center;">Student Testimonials</h3>
+            <div class="testimonials-container">
+              <div class="testimonials-scroll">
+                <div class="testimonial-card">
+                  <div class="quote-mark">"</div>
+                  <blockquote class="testimonial-text">
+                    Explains concepts in an easy-to-understand manner and is always available for help.
+                  </blockquote>
+                  <cite class="testimonial-author">— PreCalculus Workshop Student, Spring 2025</cite>
+                </div>
+                
+                <div class="testimonial-card">
+                  <div class="quote-mark">"</div>
+                  <blockquote class="testimonial-text">
+                    Knows the math and nudges us in the right direction without just giving the answers.
+                  </blockquote>
+                  <cite class="testimonial-author">— Calculus III Workshop Student, Spring 2025</cite>
+                </div>
+                
+                <div class="testimonial-card">
+                  <div class="quote-mark">"</div>
+                  <blockquote class="testimonial-text">
+                    Gave us space to ask questions, reviewed difficult problems, and offered exam tips. She created a safe space to make mistakes and guided us to identify and correct them.
+                  </blockquote>
+                  <cite class="testimonial-author">— College Algebra Workshop Student, Summer 2025</cite>
+                </div>
+              </div>
+              
+              <!-- Navigation arrows -->
+              <button class="scroll-btn scroll-btn-left" onclick="scrollTestimonials('left')" aria-label="Previous testimonial">‹</button>
+              <button class="scroll-btn scroll-btn-right" onclick="scrollTestimonials('right')" aria-label="Next testimonial">›</button>
+              
+              <!-- Scroll indicators -->
+              <div class="scroll-indicators">
+                <span class="indicator active" onclick="scrollToTestimonial(0)"></span>
+                <span class="indicator" onclick="scrollToTestimonial(1)"></span>
+                <span class="indicator" onclick="scrollToTestimonial(2)"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -577,6 +804,46 @@
         }, index * 200);
       });
     });
+
+    // Testimonials Carousel Functionality
+    let currentTestimonial = 0;
+    const totalTestimonials = 3;
+
+    function scrollTestimonials(direction) {
+      const container = document.querySelector('.testimonials-scroll');
+      const indicators = document.querySelectorAll('.indicator');
+      
+      if (direction === 'left') {
+        currentTestimonial = currentTestimonial > 0 ? currentTestimonial - 1 : totalTestimonials - 1;
+      } else {
+        currentTestimonial = currentTestimonial < totalTestimonials - 1 ? currentTestimonial + 1 : 0;
+      }
+      
+      updateCarousel();
+    }
+
+    function scrollToTestimonial(index) {
+      currentTestimonial = index;
+      updateCarousel();
+    }
+
+    function updateCarousel() {
+      const container = document.querySelector('.testimonials-scroll');
+      const indicators = document.querySelectorAll('.indicator');
+      
+      // Update transform
+      container.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+      
+      // Update indicators
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentTestimonial);
+      });
+    }
+
+    // Auto-scroll testimonials every 5 seconds
+    setInterval(() => {
+      scrollTestimonials('right');
+    }, 5000);
   </script>
 </body>
 </html>
