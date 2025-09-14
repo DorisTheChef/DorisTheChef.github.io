@@ -7,320 +7,9 @@
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#ffffff;
-      --text:#111418;
-      --muted:#687076;
-      --accent:#2563eb;
-      --ring:#2f6feb;
-      --line:#e6e8eb;
-      --pill:#f6f8fa;
-      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --shadow: 0 10px 40px rgba(0,0,0,0.1);
-    }
-
-    /* Base */
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-      line-height:1.6;
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    p{margin:0 0 1em 0}
-
-    /* Layout */
-    .container{width:min(1200px,92vw);margin:0 auto;padding:48px 24px}
-    .hero{display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;position:relative}
-    .stack{display:flex;flex-direction:column;align-items:center;gap:32px}
-
-    /* Fixed Navigation */
-    .nav-fixed{
-      position:fixed;top:20px;left:50%;transform:translateX(-50%);
-      z-index:1000;backdrop-filter:blur(10px);
-      background:rgba(255,255,255,0.95);border-radius:50px;
-      padding:8px;box-shadow:var(--shadow);
-      transition:all 0.3s ease;
-    }
-    .pill-nav{
-      display:flex;gap:8px;flex-wrap:wrap;justify-content:center
-    }
-    .pill{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:40px;padding:0 20px;border-radius:25px;
-      background:transparent;border:none;
-      font-weight:500;letter-spacing:.1em;font-size:.85rem;
-      color:var(--text);text-transform:capitalize;
-      transition:all .3s ease;cursor:pointer;
-    }
-    .pill:hover, .pill.active{
-      background:var(--accent);color:#fff;
-      transform:translateY(-1px);
-    }
-
-    /* Hero Enhancements */
-    .hero-bg{
-      position:absolute;top:0;left:0;right:0;bottom:0;
-      background:var(--gradient);opacity:0.02;z-index:-1;
-    }
-    .avatar{
-      width:180px;height:180px;border-radius:50%;object-fit:cover;
-      filter:drop-shadow(0 12px 32px rgba(0,0,0,.15));
-      border:8px solid #fff;
-      transition:transform 0.3s ease;
-    }
-    .avatar:hover{transform:scale(1.05)}
-
-    /* Typography */
-    .name{
-      font-size:clamp(32px,5vw,48px);font-weight:700;letter-spacing:.02em;
-      margin:0;background:var(--gradient);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      background-clip:text;
-    }
-    .subtitle{
-      color:var(--muted);
-      letter-spacing:.3em;font-size:.9rem;
-      line-height:1.4;text-transform:uppercase;
-      margin:8px 0 0 0;
-    }
-    .intro{
-      max-width:600px;color:var(--muted);
-      font-size:1.1rem;line-height:1.6;
-      margin:16px 0 0 0;text-align:center;
-    }
-
-    /* Socials */
-    .socials{display:flex;gap:20px;margin-top:24px;flex-wrap:wrap;justify-content:center}
-    .icon-btn{
-      width:50px;height:50px;border-radius:50%;
-      border:2px solid var(--line);display:inline-grid;place-items:center;
-      background:#fff;transition:all .3s ease;
-    }
-    .icon-btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 8px 25px rgba(47,111,235,.2);
-      border-color:var(--accent);
-    }
-    .icon{width:22px;height:22px;display:block}
-
-    /* Section Styling */
-    section{scroll-margin-top:100px;padding:80px 0}
-    .section{position:relative}
-    .section-header{text-align:center;margin-bottom:60px}
-    .section-title{
-      font-size:2.5rem;font-weight:700;margin:0 0 16px 0;
-      color:var(--text);position:relative;
-    }
-    .section-subtitle{
-      color:var(--muted);font-size:1.1rem;
-      max-width:600px;margin:0 auto;
-    }
-
-    /* About Section */
-    .about-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-    .about-text{font-size:1.1rem;line-height:1.7}
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
-    .skill{
-      background:var(--pill);border:1px solid var(--line);
-      padding:12px 16px;border-radius:12px;text-align:center;
-      font-weight:500;transition:all 0.3s ease;
-    }
-    .skill:hover{
-      background:var(--accent);color:#fff;
-      transform:translateY(-2px);
-    }
-
-    /* Students Feedback Section */
-    .feedback-content{display:flex;flex-direction:column;gap:60px}
-    
-    /* Communication Highlights */
-    .highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px}
-    .highlight-card{
-      background:#fff;border:1px solid var(--line);border-radius:20px;
-      padding:32px;text-align:center;transition:all 0.3s ease;
-      box-shadow:0 4px 20px rgba(0,0,0,.05);
-    }
-    .highlight-card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 20px 60px rgba(0,0,0,.1);
-      border-color:var(--accent);
-    }
-    .highlight-icon{font-size:3rem;margin-bottom:20px}
-    .highlight-title{
-      font-size:1.1rem;font-weight:600;margin:0 0 16px 0;
-      color:var(--text);
-    }
-    .highlight-desc{
-      color:var(--muted);line-height:1.6;margin:0;
-      font-size:0.95rem;
-    }
-    
-    /* Student Testimonials */
-    .testimonials-container{position:relative;max-width:100%;overflow:hidden}
-    .testimonials-scroll{
-      display:flex;gap:32px;transition:transform 0.5s ease;
-      scroll-behavior:smooth;
-    }
-    .testimonial-card{
-      background:linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      border:1px solid var(--line);border-radius:20px;
-      padding:32px;position:relative;transition:all 0.3s ease;
-      box-shadow:0 4px 20px rgba(0,0,0,.05);
-      flex:0 0 100%;min-width:0;
-    }
-    .testimonial-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 12px 40px rgba(0,0,0,.1);
-    }
-    .quote-mark{
-      position:absolute;top:16px;left:24px;
-      font-size:4rem;color:var(--accent);opacity:0.2;
-      font-family:Georgia,serif;line-height:1;
-    }
-    .testimonial-text{
-      margin:20px 0 16px 0;font-style:italic;
-      color:var(--text);line-height:1.6;font-size:1.05rem;
-    }
-    .testimonial-author{
-      color:var(--muted);font-size:0.9rem;font-weight:500;
-      display:block;text-align:center;margin:0 60px;
-    }
-    
-    /* Scroll Controls */
-    .scroll-btn{
-      position:absolute;top:50%;transform:translateY(-50%);
-      background:rgba(255,255,255,0.9);border:1px solid var(--line);
-      border-radius:50%;width:50px;height:50px;
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.5rem;color:var(--accent);cursor:pointer;
-      transition:all 0.3s ease;z-index:10;
-      backdrop-filter:blur(10px);
-    }
-    .scroll-btn:hover{
-      background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.1);
-      transform:translateY(-50%) scale(1.1);
-    }
-    .scroll-btn-left{left:-25px}
-    .scroll-btn-right{right:-25px}
-    
-    /* Scroll Indicators */
-    .scroll-indicators{
-      display:flex;justify-content:center;gap:8px;margin-top:24px;
-    }
-    .indicator{
-      width:12px;height:12px;border-radius:50%;
-      background:var(--line);cursor:pointer;
-      transition:all 0.3s ease;
-    }
-    .indicator.active, .indicator:hover{
-      background:var(--accent);transform:scale(1.2);
-    }
-
-    /* Enhanced Project Cards */
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:32px}
-    .project-card{
-      background:#fff;border:1px solid var(--line);border-radius:20px;
-      padding:32px;transition:all .3s ease;
-      box-shadow:0 4px 20px rgba(0,0,0,.05);
-    }
-    .project-card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 20px 60px rgba(0,0,0,.1);
-      border-color:var(--accent);
-    }
-    .project-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}
-    .project-icon{font-size:2rem}
-    .project-title{font-size:1.25rem;font-weight:600;margin:0;color:var(--text)}
-    .project-desc{color:var(--muted);margin-bottom:20px;line-height:1.6}
-    .project-tech{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-    .tech-tag{
-      background:var(--pill);color:var(--text);
-      padding:4px 12px;border-radius:20px;font-size:0.85rem;
-      border:1px solid var(--line);
-    }
-    .project-links{display:flex;gap:12px}
-    .project-link{
-      padding:8px 16px;border-radius:8px;font-weight:500;
-      transition:all 0.3s ease;border:1px solid var(--line);
-    }
-    .project-link.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .project-link.primary:hover{background:#1d4ed8}
-    .project-link:hover{background:var(--pill)}
-
-    /* Experience Timeline */
-    .timeline{position:relative;padding-left:40px}
-    .timeline::before{
-      content:'';position:absolute;left:20px;top:0;bottom:0;
-      width:2px;background:var(--line);
-    }
-    .timeline-item{position:relative;margin-bottom:40px;padding-left:40px}
-    .timeline-item::before{
-      content:'';position:absolute;left:-30px;top:8px;
-      width:12px;height:12px;border-radius:50%;
-      background:var(--accent);border:3px solid #fff;
-      box-shadow:0 0 0 3px var(--line);
-    }
-    .timeline-date{color:var(--accent);font-weight:600;font-size:0.9rem}
-    .timeline-title{font-size:1.2rem;font-weight:600;margin:4px 0 8px 0}
-    .timeline-company{color:var(--muted);margin-bottom:12px}
-    .timeline-desc{color:var(--muted);line-height:1.6}
-
-    /* Contact Section */
-    .contact-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-    .contact-info{font-size:1.1rem;line-height:1.7}
-    .contact-form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px}
-    .form-group{margin-bottom:24px}
-    .form-label{display:block;margin-bottom:8px;font-weight:500}
-    .form-input{
-      width:100%;padding:12px 16px;border:1px solid var(--line);
-      border-radius:8px;font-size:1rem;transition:border-color 0.3s ease;
-    }
-    .form-input:focus{outline:none;border-color:var(--accent)}
-    .form-textarea{resize:vertical;min-height:120px}
-    .form-button{
-      background:var(--accent);color:#fff;border:none;
-      padding:12px 32px;border-radius:8px;font-weight:500;
-      cursor:pointer;transition:background 0.3s ease;
-    }
-    .form-button:hover{background:#1d4ed8}
-
-    /* Animations */
-    .fade-in{opacity:0;transform:translateY(30px);transition:all 0.6s ease}
-    .fade-in.visible{opacity:1;transform:translateY(0)}
-
-    /* Responsive Design */
-    @media (max-width:768px){
-      .container{padding:24px 16px}
-      .hero{min-height:80vh}
-      .avatar{width:140px;height:140px}
-      .section-title{font-size:2rem}
-      .about-content{grid-template-columns:1fr;gap:40px}
-      .contact-content{grid-template-columns:1fr;gap:40px}
-      .projects-grid{grid-template-columns:1fr}
-      .highlights-grid{grid-template-columns:1fr;gap:24px}
-      .scroll-btn{width:40px;height:40px;font-size:1.2rem}
-      .scroll-btn-left{left:-20px}
-      .scroll-btn-right{right:-20px}
-      .testimonial-author{margin:0 50px}
-      .nav-fixed{left:16px;right:16px;transform:none}
-      .pill-nav{justify-content:center;flex-wrap:wrap}
-    }
-    @media (max-width:520px){
-      .subtitle{letter-spacing:.2em}
-      .socials{gap:16px}
-      .section{padding:60px 0}
-    }
-  </style>
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -398,9 +87,9 @@
           <div class="about-text">
             <p>I'm currently pursuing my Master's degree in Statistics at San José State University, where I also serve as a Teaching Associate. My journey in data science combines rigorous academic training with practical, hands-on experience in statistical modeling and data analysis.</p>
             
-            <p>My passion lies in transforming raw data into actionable insights that drive informed decision-making. Whether it's identifying patterns in time series data, reducing dimensionality in complex datasets, or building predictive models, I approach every project with curiosity and methodical precision.</p>
+            <p>My passion lies in transforming raw data into actionable insights that drive informed decision-making. Whether it's identifying patterns in time series data, reducing dimensionality in complex datasets, building predictive models, or automating data workflows, I approach every project with curiosity and methodical precision.</p>
             
-            <p>As a TA, I've developed strong communication skills, helping students grasp complex statistical concepts and fostering their analytical thinking. This experience has enhanced my ability to present technical findings to both technical and non-technical audiences.</p>
+            <p>As a Teaching Associate, I've developed strong communication skills, helping students grasp complex statistical concepts and fostering their analytical thinking. This experience has enhanced my ability to present technical findings to both technical and non-technical audiences.</p>
           </div>
           
           <div class="skills-section">
@@ -409,10 +98,10 @@
             <div class="skills-category" style="margin-bottom: 32px;">
               <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">Programming Languages</h4>
               <div class="skills-grid">
-                <div class="skill">Python (Advanced)</div>
-                <div class="skill">JavaScript (ES6+)</div>
-                <div class="skill">HTML5</div>
-                <div class="skill">CSS3</div>
+                <div class="skill">Python</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
                 <div class="skill">SQL</div>
               </div>
             </div>
@@ -432,9 +121,6 @@
               <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">Web Development</h4>
               <div class="skills-grid">
                 <div class="skill">Flask</div>
-                <div class="skill">RESTful API Design</div>
-                <div class="skill">AJAX/Fetch API</div>
-                <div class="skill">CORS</div>
                 <div class="skill">Responsive Design</div>
                 <div class="skill">Full-Stack Development</div>
               </div>
@@ -443,13 +129,11 @@
             <div class="skills-category" style="margin-bottom: 32px;">
               <h4 style="margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--accent);">Data Science</h4>
               <div class="skills-grid">
-                <div class="skill">NumPy</div>
                 <div class="skill">Pandas</div>
                 <div class="skill">Statistical Modeling</div>
                 <div class="skill">Data Validation</div>
                 <div class="skill">JSON/CSV Processing</div>
                 <div class="skill">Distribution Analysis</div>
-                <div class="skill">Virtual Environments</div>
                 <div class="skill">PyPDF2</div>
               </div>
             </div>
@@ -835,9 +519,66 @@
     }
 
     // Auto-scroll testimonials every 5 seconds
-    setInterval(() => {
+    const autoScrollInterval = setInterval(() => {
       scrollTestimonials('right');
     }, 5000);
+
+    // Touch/Swipe support for testimonials
+    let startX = 0;
+    let startY = 0;
+    let isScrolling = false;
+
+    const testimonialsContainer = document.querySelector('.testimonials-container');
+    
+    if (testimonialsContainer) {
+      testimonialsContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isScrolling = false;
+        // Pause auto-scroll when user interacts
+        clearInterval(autoScrollInterval);
+      });
+
+      testimonialsContainer.addEventListener('touchmove', (e) => {
+        if (!startX || !startY) return;
+        
+        const diffX = startX - e.touches[0].clientX;
+        const diffY = startY - e.touches[0].clientY;
+        
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          isScrolling = true;
+          e.preventDefault(); // Prevent vertical scroll
+        }
+      });
+
+      testimonialsContainer.addEventListener('touchend', (e) => {
+        if (!startX || !startY || !isScrolling) return;
+        
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        
+        // Minimum swipe distance
+        if (Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            scrollTestimonials('right');
+          } else {
+            scrollTestimonials('left');
+          }
+        }
+        
+        // Reset values
+        startX = 0;
+        startY = 0;
+        isScrolling = false;
+        
+        // Restart auto-scroll after 3 seconds
+        setTimeout(() => {
+          setInterval(() => {
+            scrollTestimonials('right');
+          }, 5000);
+        }, 3000);
+      });
+    }
   </script>
 </body>
 </html>
