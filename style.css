@@ -127,7 +127,7 @@ section{scroll-margin-top:100px;padding:80px 0}
 /* About Section */
 .about-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .about-text{font-size:1.1rem;line-height:1.7}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
 .skill{
   background:var(--pill);border:1px solid var(--line);
   padding:12px 16px;border-radius:12px;text-align:center;
