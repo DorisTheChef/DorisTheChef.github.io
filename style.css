@@ -126,6 +126,7 @@ section{scroll-margin-top:100px;padding:80px 0}
 
 /* About Section */
 .about-content{display:block}
+.skills-section{width:100%}
 .about-text{font-size:1.1rem;line-height:1.7}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
 .skill{
