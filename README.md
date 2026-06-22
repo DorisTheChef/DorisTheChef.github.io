@@ -1,7 +1,15 @@
 # Baixue (Doris) Zhang
 
-Welcome to my personal webpage!  
-I am a graduate student in Statistics at San Jose State University. I am passionate about programming, data analysis, and statistical modeling, and I aspire to become a data scientist.
+Hi! I’m Baixue Zhang, also known as Doris. I recently graduated with a Master’s degree in Statistics from San Jose State University.
+
+I’m interested in data analytics, AI applications, statistical modeling, and building practical tools that help teams make better decisions.
+
+## About Me
+
+- M.S. in Statistics, San Jose State University
+- Experience with Python, SQL, R, Tableau, and data visualization
+- Interested in AI agents, LLM applications, healthcare data, and real-world analytics
+- Currently working on projects involving dashboards, Slack AI chatbot, and AI-powered internal tools
 
 ## Click here to see my personal website
 
